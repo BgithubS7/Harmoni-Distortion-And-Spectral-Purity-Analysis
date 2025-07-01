@@ -1,1 +1,21 @@
 Photos and brief documentation of the physical test setup (e.g., loopback connection between RF output and input). Helps validate the setup and demonstrate measurement repeatability.
+
+
+
+
+Required:
+
+Keysight FieldFox N9917B (18 GHz, with Spectrum Analyzer & Signal Generator options)
+
+SMA RF cable (male-to-male)
+
+10–20 dB attenuator (optional but safer)
+
+USB flash drive (for exporting screenshots/data)
+
+Laptop with Python (for analysis and plotting)
+
+🔁 Step 2: Set Up the Loopback Test
+Power on the FieldFox.
+
+Connect the RF Out port to the RF In port using the SMA cable.
