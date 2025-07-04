@@ -13,6 +13,9 @@ SMA RF cable (male-to-male): Used to routes signal from output to input
 USB flash drive (for exporting screenshots/data): Used to Save screenshots / exported data
 Laptop with Python (for analysis and plotting)
 
+To understand the design setup please visit: https://github.com/BgithubS7/HARMONIC-DISTORTION-AND-SPECTRAL-PURITY-ANALYSIS/blob/main/README.md
+
+
 
 ## Repo Structure
 - `data/`: Raw Touchstone (.s1p) or CSV files exported from FieldFox containing spectrum or S-parameter data.
