@@ -6,7 +6,7 @@ This project uses the Keysight FieldFox N9917B to analyze the harmonic distortio
 - No external components required — fully self-contained loopback test
 - Quantifies Total Harmonic Distortion (THD)
 - Demonstrates RF signal integrity analysis and test instrumentation skills
-- Relevant to wireless hardware validation and compliance testing 
+- Relevant to wireless hardware validation and compliance testing and processes 
 
 ## Repo Structure
 - `data/`: Exported spectrum data (.csv)
