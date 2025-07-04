@@ -1,18 +1,109 @@
-Photos and brief documentation of the physical test setup (e.g., loopback connection between RF output and input). Helps validate the setup and demonstrate measurement repeatability.
 
-Required:
+GOAL: Create a self-contained loopback measurement system using only the Keysight FieldFox N9917B to evaluate:
 
+ Spectral purity (cleanliness of a CW signal)
+Harmonic distortion (strength of harmonics relative to the fundamental)
+This mimics real-world RF compliance tests in wireless devices
+
+
+Requirement for this Project
 Keysight FieldFox N9917B (18 GHz, with Spectrum Analyzer & Signal Generator options)
-
-SMA RF cable (male-to-male)
-
-10–20 dB attenuator (optional but safer)
-
-USB flash drive (for exporting screenshots/data)
-
+SMA RF cable (male-to-male): Used to routes signal from output to input
+10–20 dB attenuator (optional but safer): Used to revents overloading FieldFox input
+USB flash drive (for exporting screenshots/data): Used to Save screenshots / exported data
 Laptop with Python (for analysis and plotting)
 
-🔁 Step 2: Set Up the Loopback Test
-Power on the FieldFox.
 
-Connect the RF Out port to the RF In port using the SMA cable.
+# fieldfox_wifi_project
+
+# Project Structure
+This GitHub repo is intended to showcase a short but impactful FieldFox-based project for RF/antenna testing aligned with FAANG hardware roles.
+
+## Repo Structure
+- `data/`: Raw Touchstone (.s1p) or CSV files exported from FieldFox containing spectrum or S-parameter data.
+- `plots/`: Plots of S11, VSWR, or harmonic distortion visualizations.
+- `scripts/`: Python code for analyzing exported data (e.g., calculating THD, plotting spectrum).
+- `hardware_setup/`: Loopback connection photos and documentation of test configuration.
+- `report/`: Final technical report summarizing setup, method, results, and conclusions.
+- `README.md`: Overview of the project, setup, objectives, and results.
+
+## Hardware Setup Explanation
+
+This project uses a **self-contained loopback configuration** to evaluate the harmonic distortion and spectral purity of the internal CW signal source on the **Keysight FieldFox N9917B**.
+
+### 🧰 Equipment List
+| Component              | Purpose                                                               |
+|------------------------|-----------------------------------------------------------------------|
+| **FieldFox N9917B**    | Generates and analyzes RF signals (CW source + spectrum analyzer)     |
+| **SMA RF cable**       | Connects RF output to input for loopback measurement                  |
+| **10–20 dB attenuator** *(optional but recommended)* | Prevents overloading the spectrum analyzer input |
+| **USB flash drive**    | Used to save screenshots and measurement data                         |
+
+### 🔁 Physical Loopback Configuration
+
+The RF output of the FieldFox is connected directly to its RF input to create a closed-loop test system:
+
+```
+FieldFox RF OUT ─────(attenuator)───── RF IN
+```
+
+1. **RF Cable**: A short SMA male-to-male cable routes the CW signal from the output back to the input.
+2. **Attenuator** *(optional)*: If available, a 10–20 dB attenuator is placed inline to reduce signal power. This is strongly recommended to:
+   - Protect the spectrum analyzer front-end
+   - Reduce signal distortion due to overload
+3. **No external signal sources or antennas** are required, making this setup compact and ideal for standalone RF testing.
+
+### 📷 Setup Notes
+- The entire setup fits within the FieldFox unit itself — no external PCBs or signal generators are needed.
+- A photo of the test configuration is included in `hardware_setup/photos/loopback_setup.jpg`.
+
+### 🧠 Why This Matters
+This hardware setup simulates a controlled RF validation workflow, similar to those used in:
+- Wireless communication devices (e.g., Wi-Fi, BLE, IoT systems)
+- Spectrum compliance testing
+- RF hardware debugging
+
+It provides a practical demonstration of signal routing, safe loopback measurement, and spectrum analysis — all key skills in RF, wireless hardware, and systems roles at companies like Apple, Amazon, and Google.
+
+## Python Script (scripts/s11_plot.py)
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from skrf import Network
+
+# Load S1P file (replace with your own path)
+ntw = Network('../data/raw/5GHz_patch_antenna.s1p')
+
+# Frequency (GHz)
+freq = ntw.f/1e9
+# Return Loss (dB)
+s11_db = 20 * np.log10(np.abs(ntw.s[:,0,0]))
+# VSWR
+vswr = (1 + np.abs(ntw.s[:,0,0])) / (1 - np.abs(ntw.s[:,0,0]))
+
+# Plot S11
+plt.figure()
+plt.plot(freq, s11_db, label='S11 (dB)')
+plt.axhline(-10, color='r', linestyle='--', label='-10 dB Threshold')
+plt.title('Return Loss of 5 GHz Antenna')
+plt.xlabel('Frequency (GHz)')
+plt.ylabel('S11 (dB)')
+plt.grid(True)
+plt.legend()
+plt.savefig('../plots/return_loss.png')
+
+# Plot VSWR
+plt.figure()
+plt.plot(freq, vswr, label='VSWR')
+plt.axhline(2, color='r', linestyle='--', label='VSWR = 2')
+plt.title('VSWR of 5 GHz Antenna')
+plt.xlabel('Frequency (GHz)')
+plt.ylabel('VSWR')
+plt.grid(True)
+plt.legend()
+plt.savefig('../plots/vswr.png')
+
+print("Plots saved to ../plots/")
+```
+
