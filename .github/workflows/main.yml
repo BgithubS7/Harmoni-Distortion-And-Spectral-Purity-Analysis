@@ -1,11 +1,12 @@
 name: build
 
-on: [push, pull_request]
+on: [push, pull_request]  # ✅ This line is required!
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Dummy Build Step
+      - name: Dummy Build
         run: echo "Build passed!"
+
