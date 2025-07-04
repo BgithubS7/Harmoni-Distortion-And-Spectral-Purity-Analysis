@@ -1,10 +1,10 @@
 
-GOAL: Create a self-contained loopback measurement system using only the Keysight FieldFox N9917B to evaluate:
+# fieldfox_wifi_project
+# GOAL: Create a self-contained loopback measurement system using only the Keysight FieldFox N9917B to evaluate:
 
- Spectral purity (cleanliness of a CW signal)
-Harmonic distortion (strength of harmonics relative to the fundamental)
+ - Spectral purity (cleanliness of a CW signal)
+- Harmonic distortion (strength of harmonics relative to the fundamental)
 This mimics real-world RF compliance tests in wireless devices
-
 
 Requirement for this Project
 Keysight FieldFox N9917B (18 GHz, with Spectrum Analyzer & Signal Generator options)
@@ -14,11 +14,6 @@ USB flash drive (for exporting screenshots/data): Used to Save screenshots / exp
 Laptop with Python (for analysis and plotting)
 
 
-# fieldfox_wifi_project
-
-# Project Structure
-This GitHub repo is intended to showcase a short but impactful FieldFox-based project for RF/antenna testing aligned with FAANG hardware roles.
-
 ## Repo Structure
 - `data/`: Raw Touchstone (.s1p) or CSV files exported from FieldFox containing spectrum or S-parameter data.
 - `plots/`: Plots of S11, VSWR, or harmonic distortion visualizations.
@@ -27,17 +22,6 @@ This GitHub repo is intended to showcase a short but impactful FieldFox-based pr
 - `report/`: Final technical report summarizing setup, method, results, and conclusions.
 - `README.md`: Overview of the project, setup, objectives, and results.
 
-## Hardware Setup Explanation
-
-This project uses a **self-contained loopback configuration** to evaluate the harmonic distortion and spectral purity of the internal CW signal source on the **Keysight FieldFox N9917B**.
-
-### 🧰 Equipment List
-| Component              | Purpose                                                               |
-|------------------------|-----------------------------------------------------------------------|
-| **FieldFox N9917B**    | Generates and analyzes RF signals (CW source + spectrum analyzer)     |
-| **SMA RF cable**       | Connects RF output to input for loopback measurement                  |
-| **10–20 dB attenuator** *(optional but recommended)* | Prevents overloading the spectrum analyzer input |
-| **USB flash drive**    | Used to save screenshots and measurement data                         |
 
 ### 🔁 Physical Loopback Configuration
 
@@ -47,11 +31,6 @@ The RF output of the FieldFox is connected directly to its RF input to create a 
 FieldFox RF OUT ─────(attenuator)───── RF IN
 ```
 
-1. **RF Cable**: A short SMA male-to-male cable routes the CW signal from the output back to the input.
-2. **Attenuator** *(optional)*: If available, a 10–20 dB attenuator is placed inline to reduce signal power. This is strongly recommended to:
-   - Protect the spectrum analyzer front-end
-   - Reduce signal distortion due to overload
-3. **No external signal sources or antennas** are required, making this setup compact and ideal for standalone RF testing.
 
 ### 📷 Setup Notes
 - The entire setup fits within the FieldFox unit itself — no external PCBs or signal generators are needed.
