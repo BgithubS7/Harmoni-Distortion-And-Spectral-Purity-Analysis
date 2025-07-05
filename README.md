@@ -27,7 +27,7 @@ This project uses a **self-contained loopback configuration** to evaluate the ha
 |------------------------|-----------------------------------------------------------------------|
 | **FieldFox N9917B**    | Generates and analyzes RF signals (CW source + spectrum analyzer)     |
 | **SMA RF cable**       | Connects RF output to input for loopback measurement                  |
-| **10–20 dB attenuator** *(optional but recommended)* | Prevents overloading the spectrum analyzer input |
+| **10–20 dB attenuator** *(optional )* | Prevents overloading the spectrum analyzer input |
 | **USB flash drive**    | Used to save screenshots and measurement data                         |
 
 
