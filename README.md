@@ -41,7 +41,7 @@ This project uses a **self-contained loopback configuration** to evaluate the ha
 
 
 #DATA
-- Explanation for the setup is provided here:
+- Explanation for the data section is porvided within the branch and can also be accessed over here: 
 
 
 #SCRIPT
