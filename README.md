@@ -34,9 +34,12 @@ This project uses a **self-contained loopback configuration** to evaluate the ha
 ![Image](https://github.com/user-attachments/assets/3d07e7c2-4ecc-4a60-bf71-39a0612ec059)
 
 - Explanation for the setup is provided here: https://github.com/BgithubS7/HARMONIC-DISTORTION-AND-SPECTRAL-PURITY-ANALYSIS/blob/main/hardware_setup
-  
+---
 
+  ![Image](https://github.com/user-attachments/assets/2f3e78c7-dca2-4e1d-8733-ac867128fa02)
 
+  ---
+  ![Image](https://github.com/user-attachments/assets/e174850e-37f3-4548-ac06-6697daeacee6)
 
 
 
