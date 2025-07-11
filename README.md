@@ -40,9 +40,7 @@ This project uses a **self-contained loopback configuration** to evaluate the ha
 
   ---
 
-
-![Image](https://github.com/user-attachments/assets/54d9e7e9-33a9-4380-a6ec-0e95a46ca263)
-
+![Image](https://github.com/user-attachments/assets/2a817841-5a76-435a-a65b-09a83c678b6e)
 #DATA
 - Explanation for the data section is porvided within the branch and can also be accessed over here: 
 
