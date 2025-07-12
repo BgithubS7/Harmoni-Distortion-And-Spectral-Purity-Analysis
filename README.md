@@ -29,7 +29,7 @@ This project uses a **self-contained loopback configuration** to evaluate the ha
 | **SMA RF cable**       | Connects RF output to input for loopback measurement                  |
 | **10–20 dB attenuator** *(optional )* | Prevents overloading the spectrum analyzer input |
 | **USB flash drive**    | Used to save screenshots and measurement data                         |
-
+TO DO:
 
 ![Image](https://github.com/user-attachments/assets/3d07e7c2-4ecc-4a60-bf71-39a0612ec059)
 
